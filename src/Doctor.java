@@ -13,15 +13,16 @@ public class Doctor {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
             System.out.println("Doctors : ");
-            System.out.println("+-----------+--------------------+--------------------+");
-            System.out.println("| Doctor Id | Name               | Specialisation     |");
-            System.out.println("+-----------+--------------------+-------------------+");
+            System.out.println("+-----------+----------------------+--------------------+");
+            System.out.println("| Doctor Id | Name                 | Specialisation     |");
+            System.out.println("+-----------+----------------------+--------------------+");
             while(resultSet.next()){
                 int id = resultSet.getInt("id");
                 String name = resultSet.getString("name");
                 String specialisation = resultSet.getString("specialisation");
-                System.out.printf("| %-9s | %-18s | %-18s |\n",id,name,specialisation);
-                System.out.println("+------------+--------------------+----------+------------+");
+                System.out.printf("| %-9s | %-20s | %-18s |\n",id,name,specialisation);
+                System.out.println("+-----------+----------------------+--------------------+");
+               
             }
         } catch (SQLException e) {
             e.printStackTrace();
